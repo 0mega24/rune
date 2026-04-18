@@ -1,0 +1,8 @@
+dawn
+dusk
+ember
+storm
+frost
+tide
+gale
+mist
