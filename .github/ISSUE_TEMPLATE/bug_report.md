@@ -25,5 +25,5 @@ labels: bug
 ## Environment
 
 - Go version:
-- gowall version / commit:
+- rune version / commit:
 - OS:
