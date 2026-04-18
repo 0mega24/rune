@@ -2,5 +2,22 @@
 name = "rune"
 version = "0.1.0"
 edition = "2024"
+description = "A lightweight CLI tool that randomly selects entries from a compile-time seed file using Fibonacci hashing"
+repository = "https://github.com/0mega24/rune"
+license = "MIT"
+keywords = ["cli", "random", "picker", "fibonacci", "utility"]
+categories = ["command-line-utilities"]
 
 [dependencies]
+
+[profile.release]
+strip = true
+lto = true
+opt-level = "z"
+codegen-units = 1
+
+[lints.rust]
+unsafe_code = "forbid"
+
+[lints.clippy]
+pedantic = "warn"

@@ -8,8 +8,8 @@ fn entries() -> Vec<&'static str> {
 
 fn pick<'a>(src: &[&'a str], seed: usize) -> &'a str {
     // Fibonacci hashing — mixes bits well with no external deps
-    let idx = seed.wrapping_mul(0x9e3779b97f4a7c15) >> 33 % src.len();
-    src[idx % src.len()]
+    let idx = (seed.wrapping_mul(0x9e37_79b9_7f4a_7c15) >> 33) % src.len();
+    src[idx]
 }
 
 fn main() {
