@@ -1,0 +1,21 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: clippy, rustfmt
+      - name: fmt, test, and lint
+        run: |
+          make fmt & FMT=$!
+          make test examples/entries.txt & TEST=$!
+          make lint examples/entries.txt
+          wait $FMT
+          wait $TEST
